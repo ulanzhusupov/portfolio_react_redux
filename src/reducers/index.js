@@ -1,9 +1,10 @@
-import { FETCH_SITES_REQUESTED, FETCH_SITES_SUCCESS, FETCH_BOOKS_FAILURE } from "../action-creators";
+import { FETCH_SITES_REQUESTED, FETCH_SITES_SUCCESS, FETCH_BOOKS_FAILURE, SORT_BY } from "../action-creators";
 
 const initialState = {
   sites: [],
   loading: false,
-  error: null
+  error: null,
+  sortBy: ""
 };
 
 const reducers = (state = initialState, action) => {
@@ -12,21 +13,30 @@ const reducers = (state = initialState, action) => {
       return {
         sites: [],
         loading: true,
-        error: null
+        error: null,
+        ...state
       }
     }
     case FETCH_SITES_SUCCESS: {
       return {
         sites: action.payload,
-        loading: true,
-        error: null
+        loading: false,
+        error: null,
+        sortBy: "favourite"
       }
     }
     case FETCH_BOOKS_FAILURE: {
       return {
         sites: [],
-        loading: true,
-        error: action.payload
+        loading: false,
+        error: action.payload,
+        ...state
+      }
+    }
+    case SORT_BY: {
+      return {
+        ...state,
+        sortBy: action.payload
       }
     }
     default: {

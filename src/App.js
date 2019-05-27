@@ -23,9 +23,8 @@ class App extends React.Component {
   }
 
   render() {
-    const {sites, loading, error} = this.props;
+    const {sites, loading, error, sortBy} = this.props;
     return (
-      <Router>
         <div className="page">
           <div className="main">
             <nav className="navbar">
@@ -44,23 +43,21 @@ class App extends React.Component {
           </div>
     
           <div className="container">
-            <div className="main_content">
+            
               <Router>
-                <ProjectContent path="home" sites={sites} />
-                <AboutMe path="aboutme" />
-                <Redirect from="/" to="home" />
+                <ProjectContent path="/" sites={sites} sortBy={sortBy} />
+                <AboutMe path="/aboutme" />
               </Router>
-            </div>
+            
           </div>
         </div>
-      </Router>
     );
   }
   
 }
 
-const mapStateToProps = ({sites, loading, error}) => {
-  return { sites, loading, error };
+const mapStateToProps = ({ sites, loading, error, sortBy }) => {
+  return { sites, loading, error, sortBy };
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,4 +1,4 @@
-import { FETCH_SITES_REQUESTED, FETCH_SITES_SUCCESS, FETCH_BOOKS_FAILURE } from "../action-creators";
+import { FETCH_SITES_REQUESTED, FETCH_SITES_SUCCESS, FETCH_BOOKS_FAILURE, SORT_BY } from "../action-creators";
 
 
 const sitesRequested = () => {
@@ -21,11 +21,17 @@ const sitesError = (error) => {
   }
 };
 
-
+const sortBy = (category) => {
+  return {
+    type: SORT_BY,
+    payload: category
+  }
+};
 
 
 export {
   sitesRequested,
   sitesLoaded,
-  sitesError
+  sitesError,
+  sortBy
 };
