@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { combineReducers } from "redux";
 import { sitesRequested, sitesLoaded, sitesError } from "./actions/index";
 
-import Sidebar from './components/Sidebar';
 import ProjectContent from './components/ProjectsContent';
 import ProjectServices from "./services/project-services";
 import AboutMe from "./components/AboutMe";
@@ -25,27 +24,19 @@ class App extends React.Component {
   render() {
     const {sites, loading, error, sortBy} = this.props;
     return (
-        <div className="page">
+        <div className="page_grid">
           <div className="main">
             <nav className="navbar">
-              <div className="container">
-                <div className="navbar_nav">
-                  <Link to="/" className="nav_item">Главная</Link>
-                  <Link to="/aboutme" className="nav_item">Обо мне</Link>
-                </div>
-              </div>
+                  <div className="navbar_nav"><Link to="/" className="nav_item">Главная</Link>
+                  <Link to="/projects" className="nav_item">Работы</Link>
+                  <Link to="/aboutme" className="nav_item">Обо мне</Link></div>
             </nav>
-            <div className="bg_head" style={{backgroundImage: `url(${bg})`}}>
-            </div>
-            <div className="user_card_wrapper container">
-              <div className="user_card" style={{backgroundImage: `url(${userImg})`}} />
-            </div>
           </div>
     
-          <div className="container">
+          <div className="content_item">
             
               <Router>
-                <ProjectContent path="/" sites={sites} sortBy={sortBy} />
+                <ProjectContent path="/projects" />
                 <AboutMe path="/aboutme" />
               </Router>
             

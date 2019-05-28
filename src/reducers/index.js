@@ -4,7 +4,7 @@ const initialState = {
   sites: [],
   loading: false,
   error: null,
-  sortBy: ""
+  sortBy: "Все работы"
 };
 
 const reducers = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const reducers = (state = initialState, action) => {
         sites: action.payload,
         loading: false,
         error: null,
-        sortBy: "favourite"
+        sortBy: "Все работы"
       }
     }
     case FETCH_BOOKS_FAILURE: {
