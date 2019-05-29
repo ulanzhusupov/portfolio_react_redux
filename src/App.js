@@ -10,12 +10,13 @@ import ProjectServices from "./services/project-services";
 import AboutMe from "./components/AboutMe";
 import NotFound from './components/NotFound';
 
-import bg from "./images/bg.JPG";
-import userImg from "./images/user.JPG";
 
 const projectServices = new ProjectServices();
 
 class App extends React.Component {
+  state = {
+    isClickMenuIcon: false
+  }
 
   componentDidMount() {
     this.props.fetchSites();
@@ -25,7 +26,10 @@ class App extends React.Component {
     const {sites, loading, error, sortBy} = this.props;
     return (
         <div className="page_grid">
-          <div className="main">
+          <div className="menu_icon" onClick={() => this.setState({isClickMenuIcon: !this.state.isClickMenuIcon})}>
+
+          </div>
+          <div className={this.state.isClickMenuIcon ? "main middle" : "main"}>
             <nav className="navbar">
                   <div className="navbar_nav"><Link to="/" className="nav_item">Главная</Link>
                   <Link to="/projects" className="nav_item">Работы</Link>
