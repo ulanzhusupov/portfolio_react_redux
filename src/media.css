@@ -36,6 +36,9 @@
   .main_icon {
     display: block;
   }
+  .main_page {
+    width: 100%;
+  }
   .main {
     position: absolute;
     left: -500px;

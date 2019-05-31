@@ -41,45 +41,41 @@ h3 {
 
 body {
   min-width: 100%;
-  background: url('images/aurora.JPG');
+  background: url('images/bottom.JPG');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+}
+body::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
 }
 .page_grid {
   width: 100%;
   height: 100vh;
 }
-.menu_icon {
-  display: none;
-  width: 30px;
-  height: 3px;
-  background-color: #000;
-  position: absolute;
-  border-radius: 1px;
-  top: 50px;
-  right: 30px;
-  cursor: pointer;
-  z-index: 1000;
-}
-.menu_icon:hover {
-  cursor: pointer;
-}
-.menu_icon::before,
-.menu_icon::after {
-  content: '';
+
+/**************** Main page *******************/
+.main_page {
   display: block;
-  position: relative;
-  width: 15px;
-  height: 3px;
-  background-color: #000;
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
-.menu_icon::before {
-  top: -8px;
-}
-.menu_icon::after {
-  bottom: -8px;
-  left: 15px;
+.hero_text h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 37px;
+  color: #fff;
 }
 
 .main {
@@ -120,40 +116,8 @@ body {
   float: right;
   width: 75%;
 }
-
-
-.bg_head {
-  width: 100%;
-  height: 400px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left bottom;
-  position: absolute;
-  top: 0;
-}
-.bg_head::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.user_card_wrapper {
-  height: 400px;
-  position: relative;
-}
-.user_card {
-  z-index: 5;
-  width: 250px;
-  height: 250px;
-  border: 3px solid #e9e9e9;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  bottom: -87px;
+.main_content {
+  background-color: #fff;
 }
 
 .content_wrap {
@@ -163,6 +127,7 @@ body {
 
 .content_header {
   display: grid;
+  grid-template-columns: 30% 40% 30%;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e9e9e9;
@@ -173,11 +138,18 @@ body {
 }
 .content_header select {
   margin-bottom: 10px;
+  background: none;
+  padding: 10px 15px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: Arial;
 }
 .content_header span {
   font-size: 18px;
   font-family: 'serif';
   margin-bottom: 7px;
+  justify-self: end;
+  margin-right: 20px;
 }
 
 .content_content {
@@ -239,4 +211,46 @@ body {
 
 .visit_btn {
   margin-right: 15px;
+}
+
+
+/*************** About me page ****************/
+.aboutme_page {
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(255,255,255,0.5);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.aboutme_wrapper {
+  text-align: center;
+}
+.aboutme_photo {
+  margin-bottom: 20px;
+}
+.aboutme_photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.aboutme_text {
+  font-size: 18px;
+  font-family: Roboto;
+  margin-bottom: 20px;
+}
+.skills {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 15% 15% 15%;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.skill_block {
+  padding: 10px 15px;
+  background-color: rgba(255, 161, 161, 0.6);
+  border-radius: 5px;
 }

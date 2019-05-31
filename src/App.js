@@ -5,8 +5,10 @@ import { connect } from "react-redux";
 import { combineReducers } from "redux";
 import { sitesRequested, sitesLoaded, sitesError } from "./actions/index";
 
-import ProjectContent from './components/ProjectsContent';
 import ProjectServices from "./services/project-services";
+
+import Main from "./components/Main";
+import ProjectContent from './components/ProjectsContent';
 import AboutMe from "./components/AboutMe";
 import NotFound from './components/NotFound';
 
@@ -40,6 +42,7 @@ class App extends React.Component {
           <div className="content_item">
             
               <Router>
+                <Main path="/" />
                 <ProjectContent path="/projects" />
                 <AboutMe path="/aboutme" />
               </Router>
